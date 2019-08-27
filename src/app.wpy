@@ -1,0 +1,63 @@
+<style lang="less">
+  @import './style/weui';
+  @import "./style/icon";
+  @import "./style/style";
+</style>
+<script>
+import wepy from 'wepy';
+import 'wepy-async-function';
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index/index',         // 首页
+      'pages/error',               // 错误页
+    ],
+    window: {
+      'navigationBarTextStyle': 'black',
+      'navigationBarTitleText': '这里是默认标题',
+      'navigationBarBackgroundColor': '#FFF',
+      'backgroundColor': '#f8f8f8'
+    },
+    networkTimeout: {
+      'request': 10000,
+      'connectSocket': 10000,
+      'uploadFile': 10000,
+      'downloadFile': 10000
+    },
+    tabBar: {
+      color: '#999999',
+      selectedColor: '#169E58',
+      backgroundColor: '#FFFFFF',
+      borderStyle: 'black',
+      list: [
+        {
+          pagePath: 'pages/index/index',
+          text: '首页',
+          iconPath: 'images/icon_home.png',
+          selectedIconPath: 'images/icon_home_active.png'
+        },
+        {
+          pagePath: 'pages/kefu/index',
+          text: '问诊',
+          iconPath: 'images/icon_wenzhen.png',
+          selectedIconPath: 'images/icon_wenzhen_active.png'
+        },
+        {
+          pagePath: 'pages/user/index',
+          text: '我的',
+          iconPath: 'images/icon_wode.png',
+          selectedIconPath: 'images/icon_wode_active.png'
+        },
+
+      ]
+    }
+  }
+
+  constructor () {
+    super();
+    this.use('promisify');
+    this.use('requestfix');
+  }
+}
+</script>

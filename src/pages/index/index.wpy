@@ -1,0 +1,33 @@
+<template>
+  <view class="container"></view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+  import tip from '../../utils/tip';
+  import api from '../../utils/api';
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '首页',
+    }
+    data = {
+
+    }
+    components = {
+
+    }
+    
+    onLoad() {
+      let that = this;
+    }
+    computed = {}
+    methods = {
+      onShareAppMessage: function(res) {
+        return util.share();
+      }
+    }
+    events = {}
+  }
+</script>
+<style lang="less"></style>
