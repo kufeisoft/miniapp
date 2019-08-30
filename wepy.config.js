@@ -1,39 +1,48 @@
-const path = require('path');
-let prod = process.env.NODE_ENV === 'production';
+var prod = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  eslint: true,
   wpyExt: '.wpy',
-  build: {
-    web: {
-      apis: ['showToast', 'showActionSheet', 'showModal'],
-      components: ['navigator', 'button', 'icon', 'progress', 'slider', 'radio', 'radio-group', 'checkbox', 'checkbox-group', 'switch'],
-      htmlTemplate: path.join('src', 'index.template.html'),
-      htmlOutput: path.join('web', 'index.html'),
-      jsOutput: path.join('web', 'index.js')
-    }
-  },
+  eslint: true,
+  cliLogs: true,
   compilers: {
     less: {
+      compress: true
     },
+    /*sass: {
+      outputStyle: 'compressed'
+    },*/
     babel: {
       sourceMap: true,
       presets: [
-        'es2015',
-        'stage-1'
+        'env'
       ],
       plugins: [
+        'babel-plugin-transform-class-properties',
         'transform-export-extensions',
-        'syntax-export-extensions',
+        'syntax-export-extensions'
       ]
     }
+  },
+  plugins: {
+  },
+  appConfig: {
+    noPromiseAPI: ['createSelectorQuery']
   }
-};
+}
 
 if (prod) {
+
+  module.exports.cliLogs = false;
+
   delete module.exports.compilers.babel.sourcesMap;
+  // 压缩sass
+  // module.exports.compilers['sass'] = {outputStyle: 'compressed'}
+
   // 压缩less
-  module.exports.compilers['less'] = {compress: true};
+  module.exports.compilers['less'] = {
+    compress: true
+  }
+
   // 压缩js
   module.exports.plugins = {
     uglifyjs: {
@@ -52,8 +61,8 @@ if (prod) {
         },
         jpeg: {
           quality: 80
-        },
+        }
       }
     }
-  };
+  }
 }

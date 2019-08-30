@@ -1,33 +1,44 @@
 <template>
-  <view class="container"></view>
+  <view class="container">
+    <view class="title">{{title}}</view>
+  </view>
 </template>
 
 <script>
   import wepy from 'wepy';
-  import tip from '../../utils/tip';
-  import api from '../../utils/api';
-
+  import util from '../../utils/util';
+  
   export default class Index extends wepy.page {
+    // 页面配置
     config = {
       navigationBarTitleText: '首页',
     }
+    // 页面变量
     data = {
-
+      title: 'Hello Kufeisoft'
     }
+    // 组件
     components = {
+      // articlelist: ArticleList
+    }
+    // 计算器
+    computed = {
 
     }
-    
-    onLoad() {
-      let that = this;
-    }
-    computed = {}
+    // 响应方法
     methods = {
       onShareAppMessage: function(res) {
         return util.share();
       }
     }
-    events = {}
+    // 事件
+    events = {
+
+    }
+    // 页面加载
+    onLoad() {
+
+    }
   }
 </script>
 <style lang="less"></style>

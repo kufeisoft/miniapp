@@ -1,4 +1,10 @@
 /**
+* 全局变量名称
+* 酷飞软件 https://www.kufeisoft.com
+* Alex.xu <xux851@gmail.com>
+*/
+
+/**
  * 用户code 换取 session_key
  * @type {String}
  */

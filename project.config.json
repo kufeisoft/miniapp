@@ -1,5 +1,5 @@
 {
-  "description": "西安新城海翔眼科医院",
+  "description": "Kufei for WePY",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -7,7 +7,7 @@
     "minified": false
   },
   "compileType": "miniprogram",
-  "appid": "wx3655c3fb26400bfc",
-  "projectname": "haxiang",
+  "appid": "touristappid",
+  "projectname": "kufei",
   "miniprogramRoot": "./dist"
 }
